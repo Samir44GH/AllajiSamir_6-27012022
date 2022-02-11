@@ -4,8 +4,8 @@ function photographerFactory(data) {
   const picture = `assets/photographers/${portrait}`;
 
   function getUserCardDOM() {
-    // const PhotoLink = document.createElement("a");
-    // PhotoLink.setAttribute("href","photographer.html?")
+    const PhotoLink = document.createElement("a");
+    PhotoLink.setAttribute("href", "photographer.html?id");
     const article = document.createElement("article");
     article.classList.add("photographer_card");
     const img = document.createElement("img");
@@ -33,9 +33,9 @@ function photographerFactory(data) {
     div1.appendChild(h4);
     div1.appendChild(p1);
     div1.appendChild(p2);
-    return article;
-    //PhotoLink.appendChild(article);
-    //    return PhotoLink;
+    // return article;
+    PhotoLink.appendChild(article);
+    return PhotoLink;
   }
   return { name, picture, getUserCardDOM };
 }
