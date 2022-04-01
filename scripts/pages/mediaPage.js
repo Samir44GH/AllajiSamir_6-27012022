@@ -2,9 +2,7 @@ function A(data, photographe /*media*/) {
   for (let cur of data) {
     // const imageCardContainers = document.querySelector(".imageCard");
     let instanceMedia = new MediaFactory(photographe, cur);
-    document
-      .querySelector(".imageCardContainers")
-      .appendChild(instanceMedia.draw());
+    document.querySelector(".mediaContainer").appendChild(instanceMedia.draw());
 
     // const userCardPhotoMedia = function getUserCardPhoto() {
     //   const imageCardMedia = document.createElement("article");
@@ -32,6 +30,7 @@ fetch("data/photographers.json")
     const RecupDataMedia = data.media.filter(
       (element) => element.photographerId === parseInt(id)
     );
+    //Création des images des médias dans la  classe MediaContainer
     // const userCardPhotoMedia = function getUserCardPhoto() {
     //   const imageCardMedia = document.createElement("article");
     // };
