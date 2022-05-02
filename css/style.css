@@ -1,5 +1,7 @@
 @import url("photographer.css");
+@import url("lightbox.css");
 
+/******** PHOTOGRAPHER-INDEX.HTML********/
 body {
   font-family: "DM Sans", sans-serif;
   margin: 0;
@@ -83,3 +85,102 @@ h1 {
   text-align: center;
   margin-top: 2px;
 }
+
+/********IMAGE & VIDEO MEDIA.HTML********/
+
+.mediaContainer {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin: 50px 100px;
+}
+
+.containersImageCards,
+.containersVideoCards {
+  width: 28%;
+  margin-bottom: 30px;
+}
+
+.enterLightbox {
+  display: flex;
+  border-radius: 5px;
+}
+.enterLightbox:hover {
+  cursor: pointer;
+}
+.imageMedia,
+.videoMedia {
+  object-fit: cover;
+  height: 300px;
+  width: 100%;
+  border-radius: 5px;
+  position: relative;
+  transform: scale(1);
+  transition: transform 0.6s linear;
+}
+
+.sousTitre {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  margin-top: 3px;
+  font-size: 1.5em;
+  color: #901c1c;
+}
+
+.titleMedia {
+  text-overflow: ellipsis;
+  margin: 0px;
+  overflow: hidden;
+  font-size: 1em;
+  font-weight: normal;
+  white-space: nowrap;
+}
+/*Heart*/
+.heartLike {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: nowrap;
+}
+
+.heartButton {
+  cursor: pointer;
+  background: none;
+  margin-left: 6px;
+  color: inherit;
+  padding: 0;
+  border: none;
+  /* padding-top: 5px; */
+}
+
+.heartButton .fas {
+  font-size: 1.6em;
+}
+
+.heart {
+  color: #ea2027;
+}
+
+.heart:hover {
+  animation: SHeart 1s linear;
+  color: #901c1c;
+}
+@keyframes SHeart {
+  0% {
+    transform: scale(1);
+  }
+  15% {
+    transform: scale(1.3);
+  }
+  30% {
+    transform: scale(1);
+  }
+  45% {
+    transform: scale(1.3);
+  }
+  60% {
+    transform: scale(1);
+  }
+}
+/**********LIGHTBOX************/
+/*Insérer le ccs de jsfiddle*/
