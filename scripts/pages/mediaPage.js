@@ -10,8 +10,8 @@ function B(data, photographe) {
   console.log(data);
   let instanceLB = new LightBox(data, photographe);
   console.log(instanceLB);
-  document.querySelector("#lightboxContainer").appendChild(instanceLB.draw());
-  // console.log(instanceLB.draw
+  document.body.appendChild(instanceLB.draw());
+  console.log(instanceLB.draw);
 }
 
 fetch("data/photographers.json")

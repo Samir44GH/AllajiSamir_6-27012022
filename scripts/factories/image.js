@@ -76,6 +76,7 @@ class ImageFactory {
   }
 
   openLB() {
-    document.querySelector("#lightboxContainer").style.display = "none";
+    let LightBox = document.querySelector(".lightboxContainer");
+    LightBox.style.display = "block";
   }
 }
