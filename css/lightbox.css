@@ -22,7 +22,7 @@
 .lightboxNext {
   position: fixed;
   top: 46%;
-  right: 17%;
+  right: 18%;
   cursor: pointer;
   border: none;
 
@@ -40,22 +40,33 @@
 }
 
 .lightboxPrev {
-  left: 15%;
+  left: 17%;
   transform: rotate(180deg);
 }
 
 .closeLightBox {
-  background: url(../img/cross-svg.svg) no-repeat center center / 100px 45px;
+  background: url(../img/cross-svg.svg) no-repeat center center / 90px 40px;
   width: 4%;
   height: 6%;
   opacity: 0.9;
 
   position: fixed;
-  top: 2%;
-  right: 17%;
+  top: 3%;
+  right: 18%;
   cursor: pointer;
   border: none;
   z-index: 20;
   filter: invert(19%) sepia(27%) saturate(6301%) hue-rotate(346deg)
     brightness(84%) contrast(93%);
+}
+
+.titleLBImg {
+  position: absolute;
+  bottom: -3%;
+  left: 23%;
+  color: #901c1c;
+  font-family: "DM Sans";
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 31px;
 }

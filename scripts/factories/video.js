@@ -4,6 +4,8 @@ class VideoFactory {
     this.video = media.video;
     this.title = media.title;
     this.likes = media.likes;
+
+    this.elvid = document.createElement("video");
   }
 
   getUserCardVideo() {
@@ -49,21 +51,28 @@ class VideoFactory {
   }
   draw() {
     //Création de l'élément Vidéo//
-    let elvid = document.createElement("video");
     const videoLink = document.createElement("a");
     const getUserCard = this.getUserCardVideo();
     //Icone de lecture a ajouté en + pour reconnaitre la vidéo//
     videoLink.setAttribute("href", "#");
     videoLink.classList.add("enterLightbox");
-    elvid.classList.add("videoMedia");
+    this.elvid.addEventListener("click", (event) => {
+      event.preventDefault();
+      this.openLB();
+    });
+    this.elvid.classList.add("videoMedia");
     let elsrc = document.createElement("source");
-    elvid.setAttribute("alt", this.title);
+    this.elvid.setAttribute("alt", this.title);
 
     elsrc.src = "../assets/" + this.name + "/" + this.video;
-    elvid.appendChild(elsrc);
-    videoLink.appendChild(elvid);
+    this.elvid.appendChild(elsrc);
+    videoLink.appendChild(this.elvid);
     getUserCard.prepend(videoLink);
     return getUserCard;
+  }
+  openLB() {
+    let LightBox = document.querySelector(".lightboxContainer");
+    LightBox.style.display = "block";
   }
 }
 // draw() {

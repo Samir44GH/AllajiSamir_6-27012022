@@ -44,8 +44,6 @@ class ImageFactory {
     divSousTitre.appendChild(titleImage);
     divSousTitre.appendChild(divLike);
     //Ajout des enfants du lien et du sous-titre//
-    //imageLink.appendChild(getUserCard.elimg);
-    //imageCardMedia.appendChild(imageLink);
     imageCardMedia.appendChild(divSousTitre);
 
     return imageCardMedia;

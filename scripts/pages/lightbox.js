@@ -9,6 +9,8 @@ class LightBox {
     console.log(this.listTitle);
     console.log(this.listVideo);
     this.name = photographers.name;
+
+    this.video = media.video;
   }
 
   getUserLB() {}
@@ -23,9 +25,6 @@ class LightBox {
     let imageCur = -1;
 
     for (let elCur of this.listMedia) {
-      // const titleImage = document.createElement("h2");
-      // titleImage.classList.add("titleLBImg");
-      // titleImage.textContent = elCur;
       let LBimage = elCur.video
         ? this.createVideo(elCur.video)
         : document.createElement("img");
@@ -37,7 +36,6 @@ class LightBox {
       titleImage.classList.add("titleLBImg");
 
       titleImage.textContent = elCur.title;
-      // LBImgTitle.classList.add("LBImgTitle");
       LBimage.classList.add("LBImg");
       LBimage.setAttribute("alt", elCur.title);
       LightBoxEl1.appendChild(LBimage);
@@ -46,42 +44,17 @@ class LightBox {
       LightBoxEl.appendChild(LightBoxEl1);
 
       LightBox.appendChild(LightBoxEl);
-
-      LightBoxEl.children[LightBoxEl.children.length - 1].children[0].src =
-        "../assets/" + this.name + "/" + elCur.image || elCur.video;
+      if (!elCur.video)
+        LightBoxEl.children[LightBoxEl.children.length - 1].children[0].src =
+          "../assets/" + this.name + "/" + elCur.image || elCur.video;
     }
-
-    // for (let Cur of this.listTitle) {
-    //   const titleImage = document.createElement("h2");
-
-    //   titleImage.classList.add("titleLBImg");
-
-    //   LBImgTitle.classList.add("LBImgTitle");
-
-    //   LBImgTitle.appendChild(titleImage);
-    //   LightBox.appendChild(LBImgTitle);
-    //   LBImgTitle.children[LBImgTitle.children.length - 1].textContent = Cur;
-    // }
-    // for (let Cur of this.listImage) {
-    //   const titleImage = document.createElement("h2");
-    //   titleImage.classList.add("titleLBImg");
-    //   //titleImage.textContent = Cur;
-    //   LBImgTitle.appendChild(titleImage);
-    //   LightBoxEl.appendChild(LBImgTitle);
-    //   LBImgTitle.children[LBImgTitle.children.length - 1].textContent =
-    //     this.title + "/" + Cur;
-    // }
 
     //Fonction qui va faire l'animation de la gallerie
     const hideEl = () => {
-      //LightBox.style.display = "none";
       //on réinitialise l'affichage de toutes les images (autres que celle que l'on veut afficher)
       for (let OnEl of LightBoxEl.children) {
         OnEl.style.display = "none";
       }
-      // for (let El of LBImgTitle.children) {
-      //   El.style.display = "none";
-      // }
     };
     console.log(hideEl);
     //Création de la fonction qui permet de passer à l'image suivante
@@ -136,9 +109,15 @@ class LightBox {
   createVideo(vid) {
     let video = document.createElement("video");
 
-    video.appendChild(document.createElement("source"));
-    video.children[0].src = vid;
+    // let elsrc = document.createElement("source");
+    // video.setAttribute("alt", this.title);
 
+    // elsrc.src = "../assets/" + this.name + "/" + this.video;
+    // video.appendChild(elsrc);
+    video.appendChild(document.createElement("source"));
+    video.children[0].src = "../assets/" + this.name + "/" + vid;
+    video.controls = "controls";
+    console.log(video.children);
     return video;
   }
 }
