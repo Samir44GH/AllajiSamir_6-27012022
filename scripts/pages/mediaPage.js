@@ -99,7 +99,7 @@ function banneer(photographers, listDataPhotographer) {
 
 function modal(data) {
   // console.log(data);
-  let instanceB = new Modal(data[0]);
+  let instanceB = new modalContact(data[0]);
   console.log(instanceB);
   document
     .querySelector("#contact_modal")

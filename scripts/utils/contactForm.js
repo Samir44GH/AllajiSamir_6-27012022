@@ -1,4 +1,4 @@
-class Modal {
+class modalContact {
   constructor(photographers) {
     this.name = photographers.name;
     this.id = photographers.id;
