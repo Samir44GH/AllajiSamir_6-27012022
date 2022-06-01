@@ -8,13 +8,13 @@ async function displayData(photographers) {
   });
 }
 
-async function init() {
-  // Récupère les datas des photographes
-  const { photographers } = await getPhotographers();
-  //displayData(photographers);
-}
+// async function init() {
+//   // Récupère les datas des photographes
+//   const { photographers } = await getPhotographers();
+//   //displayData(photographers);
+// }
 
-init();
+// init();
 
 fetch("data/photographers.json")
   .then((res) => res.json())
