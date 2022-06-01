@@ -9,7 +9,7 @@ class Photographers {
     this.country = photographers.country;
     this.tagline = photographers.tagline;
     this.price = photographers.price;
-    this.portrait = photographers.portrait;
+    this.portrait = "../assets/photographers/" + photographers.portrait;
   }
 
   getUserBannerDOM() {
@@ -23,7 +23,7 @@ class Photographers {
 
     article.classList.add("photographer_banner_card");
     img.classList.add("photographer_banner_img");
-    img.src = "../assets/photographers/" + this.portrait;
+    img.src = /*"../assets/photographers/" +*/ this.portrait;
     img.setAttribute("alt", this.name);
     h2.textContent = this.name;
     h2.classList.add("photographer_banner_name");
