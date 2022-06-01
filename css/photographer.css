@@ -1,10 +1,15 @@
+/* /////////////BANNER//////////////////// */
+
 #contact_modal {
   display: none;
   z-index: 3;
-  position: fixed;
-  top: 0;
-  background-color: rgba(255, 255, 255, 0.9);
-  height: 100%;
+  position: absolute;
+  left: 0%;
+  right: 0%;
+  top: 0%;
+  bottom: 0%;
+  background-color: rgba(196, 196, 196, 0.4);
+  height: 255%;
   width: 100%;
 }
 
@@ -29,24 +34,35 @@
   cursor: pointer;
 }
 
+.contact_button:hover {
+  color: black;
+  background-color: #d3573c;
+}
+
 .submit_modal {
-  align-self: center;
+  align-self: flex-start;
+  margin-top: 1%;
+}
+
+/* ///////////////////MODALE////////////////////// */
+
+#contact_modal {
+  position: fixed;
 }
 
 .modal {
   border-radius: 5px;
   background-color: #db8876;
-  width: 50%;
+  width: 41.813em;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
-  /* padding: 10px 35px 10px 35px; */
   padding: 35px;
+  justify-content: space-between;
   margin: auto;
   z-index: 3;
-  height: 100%;
-  position: fixed;
+  height: 41.25em;
+  /* position: absolute; */
   top: 3%;
   left: 22%;
 }
@@ -56,7 +72,8 @@
   align-items: flex-start;
   flex-wrap: nowrap;
   width: 100%;
-  height: 20%;
+  height: 19%;
+  margin-bottom: 3%;
 }
 
 .modal header img {
@@ -68,32 +85,45 @@
   font-size: 64px;
   font-weight: normal;
   /* text-align: center; */
-  margin: -3% 0 0 0;
+  margin: -1% 0 0 0;
+  line-height: 100%;
 }
 
 form {
   display: flex;
   width: 100%;
+  height: 80%;
   flex-direction: column;
   align-items: flex-start;
 }
 
 form label {
   color: #312e2e;
-  font-size: 36px;
+  font-size: 2em;
 }
 
 form div {
   display: flex;
   flex-direction: column;
   width: 100%;
+  height: 18%;
   align-items: self-start;
-  margin-bottom: 26px;
 }
 
+.divMessage {
+  margin-bottom: 2%;
+  height: 30%;
+}
+
+.inputMessage {
+  height: 80%;
+
+  overflow: auto;
+}
 form input {
   width: 100%;
-  height: 68px;
+  height: 50%;
+  font-size: 1.5em;
   border: none;
   border-radius: 5px;
 }
@@ -112,10 +142,6 @@ form input {
   border-radius: 50%;
   object-fit: cover;
 }
-
-/* .photographer_banner_description {
-  width: 36%;
-} */
 
 .photographer_banner_name {
   color: #d3573c;
@@ -147,3 +173,91 @@ form input {
   line-height: 23px;
   color: #525252;
 }
+
+/*//////////////////// DROPDOWN////////////////////// */
+.dropDownContainer {
+  margin-left: 6.25em;
+  margin-top: 2%;
+  height: 3em;
+}
+.dropDown {
+  display: flex;
+  justify-content: space-between;
+  width: 15em;
+}
+.containerDD {
+  display: flex;
+  /* flex-direction: column; */
+  flex-direction: row;
+  z-index: 2;
+  padding: 0;
+  background-color: #901c1c;
+  border-radius: 4px;
+}
+.containerBtn {
+  display: flex;
+  flex-direction: column;
+  /* z-index: 2; */
+  padding: 0 5px;
+  background-color: #901c1c;
+  border-radius: 4px;
+}
+.containerSort {
+  font-family: "DM Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 23px;
+}
+
+.buttonDropDown {
+  width: 150px;
+  height: 60px;
+  text-align: left;
+  padding-left: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btnArrow {
+  padding-top: 1.4em;
+  height: 2.4em;
+  margin-left: -1.5em;
+  z-index: 10;
+  color: white;
+}
+
+.disappear {
+  display: none;
+}
+
+/*style boutons dropdown*/
+#buttonDrop1 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-right: 0;
+}
+#buttonDrop2 {
+  border-top: 2px white solid;
+  border-radius: unset;
+  padding: 0 3.5em 0 0;
+  /* display: none; */
+}
+
+/* icone chevron */
+#buttonDrop1 .fas {
+  pointer-events: none;
+  margin-right: 5%;
+  z-index: 2;
+}
+.rotate {
+  transition: all 500ms;
+  transform: rotate(180deg);
+}
+
+/* .rotateIn {
+  transition: all 500ms;
+  transform: rotate(-180deg);
+} */

@@ -1,10 +1,12 @@
 class ImageFactory {
   constructor(photographers, media) {
+    // console.log(media);
+    // console.log(photographers);
     this.name = photographers.name;
     this.image = media.image;
     this.title = media.title;
     this.likes = media.likes;
-    console.log(photographers.name);
+
     this.elimg = document.createElement("img");
   }
   getUserCardPhoto() {

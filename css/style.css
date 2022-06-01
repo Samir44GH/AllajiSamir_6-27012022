@@ -54,6 +54,12 @@ h1 {
   margin: 1.188em 0 0 0;
 }
 
+.photographer_name:hover {
+  color: #901c1c;
+
+  font-size: 2.28em;
+}
+
 .photographer_img {
   height: 200px;
   width: 200px;
@@ -63,9 +69,10 @@ h1 {
 .photographer_description {
   display: flex;
   flex-direction: column;
+  color: #901c1c;
 }
 .photographer_description .city {
-  font-size: 0.813em;
+  font-size: 1.1em;
   font-weight: 400;
   color: #901c1c;
   justify-content: center;
@@ -74,14 +81,14 @@ h1 {
 }
 
 .photographer_description .tagline {
-  font-size: 0.625em;
+  font-size: 0.9em;
   font-weight: bold;
   margin: 4px 0 0 0;
   text-align: center;
 }
 
 .photographer_description .price {
-  font-size: 0.563em;
+  font-size: 0.9em;
   text-align: center;
   margin-top: 2px;
 }
@@ -104,6 +111,7 @@ h1 {
 .enterLightbox {
   display: flex;
   border-radius: 5px;
+  position: relative;
 }
 .enterLightbox:hover {
   cursor: pointer;
@@ -117,6 +125,11 @@ h1 {
   position: relative;
   transform: scale(1);
   transition: transform 0.6s linear;
+}
+
+.imageMedia:hover,
+.videoMedia:hover {
+  transform: scale(1.02);
 }
 
 .sousTitre {
