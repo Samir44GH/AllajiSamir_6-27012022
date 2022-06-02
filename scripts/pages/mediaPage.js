@@ -38,6 +38,8 @@ fetch("data/photographers.json")
 
     // document.addEventListener("click", function (e) {
     //   const ctnMedia = document.querySelector(".mediaContainer");
+    //   let ctnImgcards = document.querySelector(".containersImageCards");
+    //   let ctnVidcards = document.querySelector(".containersVideoCards");
     //   //Création de la mediaContainer trié en ordre croissant via la popularité en appuyant sur le buttonDrop1(Popularité)
     //   if (e.target.value === "Popularité") {
     //     recupDataMedia.sort(function (a, b) {
@@ -55,17 +57,30 @@ fetch("data/photographers.json")
     //     console.log("TITLE");
     //   }
 
-    //   //supression de l'ancien .mediaContainer
+      //supression de l'ancien .mediaContainer
 
-    //   while (ctnMedia.firstChild) {
-    //     ctnMedia.removeChild(ctnMedia.firstChild);
-    //   }
+      const spanLikeNumber = document.createElement("span");
 
-    //   media(recupDataMedia, photographe);
-    // });
+      // while (ctnMedia.nth - child(1n + 0)) {
+      //   ctnMedia.removeChild(ctnMedia.nth - child(1n + 0));
+      // }
+
+      // while (ctnMedia.firstChild) {
+      //   ctnMedia.removeChild(ctnMedia.firstChild);
+      // }
+
+      // while ((ctnMedia.firstChild, (spanLikeNumber.textContent = this.likes))) {
+      //   ctnMedia.removeChild(
+      //     ctnMedia.firstChild,
+      //     (spanLikeNumber.textContent = this.likes)
+      //   );
+      // }
+
+      media(recupDataMedia, photographe);
+    });
 
     banneer(photographe, recupDataMedia);
-    modal(photographe);
+    modal(photographe, recupDataMedia);
     dropDown(photographe, recupDataMedia);
     media(recupDataMedia, photographe);
     LB(recupDataMedia, photographe);
@@ -97,15 +112,24 @@ function banneer(photographers, listDataPhotographer) {
   console.log(instanceB.getUserBannerDOM);
 }
 
-function modal(data) {
+function modal(photographer, listDataPhotographer) {
   // console.log(data);
-  let instanceB = new modalContact(data[0]);
+  let instanceB = new Photographers(photographer[0], listDataPhotographer);
   console.log(instanceB);
   document
     .querySelector("#contact_modal")
     .appendChild(instanceB.modalPhotographer());
   console.log(instanceB.modalPhotographer);
 }
+// function modal(photographer) {
+//   // console.log(data);
+//   let instanceB = new modalContact(photographer[0]);
+//   console.log(instanceB);
+//   document
+//     .querySelector("#contact_modal")
+//     .appendChild(instanceB.modalPhotographer());
+//   console.log(instanceB.modalPhotographer);
+// }
 
 function dropDown(photographers, listDataPhotographer) {
   // console.log(listDataPhotographer);
