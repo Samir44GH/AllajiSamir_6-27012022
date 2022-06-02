@@ -57,27 +57,27 @@ fetch("data/photographers.json")
     //     console.log("TITLE");
     //   }
 
-      //supression de l'ancien .mediaContainer
+    //supression de l'ancien .mediaContainer
 
-      const spanLikeNumber = document.createElement("span");
+    const spanLikeNumber = document.createElement("span");
 
-      // while (ctnMedia.nth - child(1n + 0)) {
-      //   ctnMedia.removeChild(ctnMedia.nth - child(1n + 0));
-      // }
+    // while (ctnMedia.nth - child(1n + 0)) {
+    //   ctnMedia.removeChild(ctnMedia.nth - child(1n + 0));
+    // }
 
-      // while (ctnMedia.firstChild) {
-      //   ctnMedia.removeChild(ctnMedia.firstChild);
-      // }
+    // while (ctnMedia.firstChild) {
+    //   ctnMedia.removeChild(ctnMedia.firstChild);
+    // }
 
-      // while ((ctnMedia.firstChild, (spanLikeNumber.textContent = this.likes))) {
-      //   ctnMedia.removeChild(
-      //     ctnMedia.firstChild,
-      //     (spanLikeNumber.textContent = this.likes)
-      //   );
-      // }
+    // while ((ctnMedia.firstChild, (spanLikeNumber.textContent = this.likes))) {
+    //   ctnMedia.removeChild(
+    //     ctnMedia.firstChild,
+    //     (spanLikeNumber.textContent = this.likes)
+    //   );
+    // }
 
-      media(recupDataMedia, photographe);
-    });
+    //   media(recupDataMedia, photographe);
+    // });
 
     banneer(photographe, recupDataMedia);
     modal(photographe, recupDataMedia);
