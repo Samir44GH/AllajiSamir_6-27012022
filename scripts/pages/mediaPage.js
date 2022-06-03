@@ -36,48 +36,35 @@ fetch("data/photographers.json")
       });
     console.log(recupDataMediaTitile);
 
-    // document.addEventListener("click", function (e) {
-    //   const ctnMedia = document.querySelector(".mediaContainer");
-    //   let ctnImgcards = document.querySelector(".containersImageCards");
-    //   let ctnVidcards = document.querySelector(".containersVideoCards");
-    //   //Création de la mediaContainer trié en ordre croissant via la popularité en appuyant sur le buttonDrop1(Popularité)
-    //   if (e.target.value === "Popularité") {
-    //     recupDataMedia.sort(function (a, b) {
-    //       return a.likes - b.likes;
-    //     });
-    //     console.log("POPU");
-    //   }
-    //   //Création de la mediaContainer trié en ordre croissant via les titres en appuyant sur le buttonDRop2(Titres)
-    //   else if (e.target.value === "Titre") {
-    //     recupDataMedia.sort(function (a, b) {
-    //       if (a.title > b.title) return 1;
-    //       if (a.title < b.title) return -1;
-    //       return 0;
-    //     });
-    //     console.log("TITLE");
-    //   }
+    document.addEventListener("click", function (e) {
+      const ctnMedia = document.querySelector(".mediaContainer");
+      let ctnImgcards = document.querySelector(".containersImageCards");
+      let ctnVidcards = document.querySelector(".containersVideoCards");
+      //Création de la mediaContainer trié en ordre croissant via la popularité en appuyant sur le buttonDrop1(Popularité)
+      if (e.target.value === "Popularité") {
+        recupDataMedia.sort(function (a, b) {
+          return a.likes - b.likes;
+        });
+        console.log("POPU");
+      }
+      //Création de la mediaContainer trié en ordre croissant via les titres en appuyant sur le buttonDRop2(Titres)
+      else if (e.target.value === "Titre") {
+        recupDataMedia.sort(function (a, b) {
+          if (a.title > b.title) return 1;
+          if (a.title < b.title) return -1;
+          return 0;
+        });
+        console.log("TITLE");
+      }
 
-    //supression de l'ancien .mediaContainer
+      // supression de l'ancien .mediaContainer
 
-    const spanLikeNumber = document.createElement("span");
+      while (ctnMedia.firstChild) {
+        ctnMedia.removeChild(ctnMedia.firstChild);
+      }
 
-    // while (ctnMedia.nth - child(1n + 0)) {
-    //   ctnMedia.removeChild(ctnMedia.nth - child(1n + 0));
-    // }
-
-    // while (ctnMedia.firstChild) {
-    //   ctnMedia.removeChild(ctnMedia.firstChild);
-    // }
-
-    // while ((ctnMedia.firstChild, (spanLikeNumber.textContent = this.likes))) {
-    //   ctnMedia.removeChild(
-    //     ctnMedia.firstChild,
-    //     (spanLikeNumber.textContent = this.likes)
-    //   );
-    // }
-
-    //   media(recupDataMedia, photographe);
-    // });
+      media(recupDataMedia, photographe);
+    });
 
     banneer(photographe, recupDataMedia);
     modal(photographe, recupDataMedia);
