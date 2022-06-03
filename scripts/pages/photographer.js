@@ -9,7 +9,7 @@ class Photographers {
     this.country = photographers.country;
     this.tagline = photographers.tagline;
     this.price = photographers.price;
-    this.portrait = "../assets/photographers/" + photographers.portrait;
+    this.portrait = "assets/photographers/" + photographers.portrait;
   }
 
   modalPhotographer() {
