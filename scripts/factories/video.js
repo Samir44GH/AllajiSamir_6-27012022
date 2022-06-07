@@ -4,7 +4,7 @@ class VideoFactory {
     this.video = media.video;
     this.title = media.title;
     this.likes = media.likes;
-
+    console.log(media.video);
     this.elvid = document.createElement("video");
   }
 

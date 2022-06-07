@@ -8,8 +8,9 @@ class LightBox {
     console.log(this.listImage);
     console.log(this.listTitle);
     console.log(this.listVideo);
+    console.log(this.listMedia);
     this.name = photographers.name;
-
+    console.log(photographers.name);
     this.video = media.video;
   }
 
@@ -28,7 +29,7 @@ class LightBox {
       let LBimage = elCur.video
         ? this.createVideo(elCur.video)
         : document.createElement("img");
-      console.log(elCur.video);
+
       let LightBoxEl1 = document.createElement("article");
       LightBoxEl1.classList.add("lightBoxEl1");
 
@@ -47,7 +48,7 @@ class LightBox {
       LightBox.appendChild(LightBoxEl);
       if (!elCur.video)
         LightBoxEl.children[LightBoxEl.children.length - 1].children[0].src =
-          "./assets/" + this.name + "/" + elCur.image || elCur.video;
+          "/assets/" + this.name + "/" + elCur.image || elCur.video;
     }
 
     //Fonction qui va faire l'animation de la gallerie
@@ -129,7 +130,7 @@ class LightBox {
     let video = document.createElement("video");
 
     video.appendChild(document.createElement("source"));
-    video.children[0].src = "./assets/" + this.name + "/" + vid;
+    video.children[0].src = "/assets/" + this.name + "/" + vid;
     video.controls = "controls";
     console.log(video.children);
     return video;
