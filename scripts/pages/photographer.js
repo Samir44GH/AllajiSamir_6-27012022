@@ -9,7 +9,7 @@ class Photographers {
     this.country = photographers.country;
     this.tagline = photographers.tagline;
     this.price = photographers.price;
-    this.portrait = "assets/photographers/" + photographers.portrait;
+    this.portrait = "../assets/photographers/" + photographers.portrait;
   }
 
   modalPhotographer() {
@@ -188,8 +188,13 @@ class Photographers {
     dropDown.classList.add("dropDown");
     containerBtnDD.classList.add("containerBtn");
     containerDropDown.classList.add("containerDD");
-    buttonDD1.classList.add("buttonDropDown", "contact_button");
-    buttonDD2.classList.add("buttonDropDown", "contact_button", "disappear");
+    buttonDD1.classList.add("buttonDropDown", "contact_button", "buttonDD1");
+    buttonDD2.classList.add(
+      "buttonDropDown",
+      "contact_button",
+      "disappear",
+      "buttonDD2"
+    );
     spanDD1.classList.add("fas", "fa-chevron-down", "btnArrow");
 
     containerDropDown.setAttribute("role", "naviguation"),
