@@ -64,7 +64,7 @@ class VideoFactory {
     let elsrc = document.createElement("source");
     this.elvid.setAttribute("alt", this.title);
 
-    elsrc.src = "../assets/" + this.name + "/" + this.video;
+    elsrc.src = "assets/" + this.name + "/" + this.video;
     this.elvid.appendChild(elsrc);
     videoLink.appendChild(this.elvid);
     getUserCard.prepend(videoLink);
