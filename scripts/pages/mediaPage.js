@@ -63,41 +63,10 @@ fetch("data/photographers.json")
     //     return a.likes - b.likes;
     //   });
     //   const ctnMedia = document.querySelector(".mediaContainer");
+    //   ////Suppression de l'ancien mediacontainer
     //   while (ctnMedia.firstChild) {
     //     ctnMedia.removeChild(ctnMedia.firstChild);
     //   }
-
-    //   media(recupDataMedia, photographe);
-    // });
-
-    // document.addEventListener("click", (e) => {
-    //   console.log(e.target.value);
-    //   const ctnMedia = document.querySelector(".mediaContainer");
-    //   let ctnImgcards = document.querySelector(".containersImageCards");
-    //   let ctnVidcards = document.querySelector(".containersVideoCards");
-    //   //Création de la mediaContainer trié en ordre croissant via la popularité en appuyant sur le buttonDrop1(Popularité)
-    //   if (e.target.value === "Popularité") {
-    //     recupDataMedia.sort((a, b) => {
-    //       return a.likes - b.likes;
-    //     });
-    //     console.log("POPU");
-    //   }
-
-    //   //Création de la mediaContainer trié en ordre croissant via les titres en appuyant sur le buttonDRop2(Titres)
-    //   else if (e.target.value === "Titre") {
-    //     recupDataMedia.sort((a, b) => {
-    //       if (a.title > b.title) return 1;
-    //       if (a.title < b.title) return -1;
-    //       return 0;
-    //     });
-    //     console.log("TITLE");
-    //   }
-
-    //   //supression de l'ancien .mediaContainer
-
-    //   // while (ctnMedia.firstChild) {
-    //   //   ctnMedia.removeChild(ctnMedia.firstChild);
-    //   // }
 
     //   media(recupDataMedia, photographe);
     // });

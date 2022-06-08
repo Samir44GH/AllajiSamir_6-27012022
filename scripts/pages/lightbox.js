@@ -131,8 +131,8 @@ class LightBox {
     let video = document.createElement("video");
 
     video.appendChild(document.createElement("source"));
-    video.children[0].src =
-      "/SamirALLAJI_6-27012022/assets/" + this.country + "/" + vid;
+    video.children[0].src = "assets/" + this.country + "/" + vid;
+    // /SamirALLAJI_6-27012022/
     video.controls = "controls";
     console.log(video.children);
     return video;
