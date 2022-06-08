@@ -75,31 +75,31 @@ fetch("data/photographers.json")
     //     media(recupDataMedia, photographe);
     //   });
     // };
-    buttonDD2.addEventListener("click", () => {
-      recupDataMedia.sort((a, b) => {
-        if (a.title > b.title) return 1;
-        if (a.title < b.title) return -1;
-        return 0;
-      });
-      const ctnMedia = document.querySelector(".mediaContainer");
-      while (ctnMedia.firstChild) {
-        ctnMedia.removeChild(ctnMedia.firstChild);
-      }
+    // buttonDD2.addEventListener("click", () => {
+    //   recupDataMedia.sort((a, b) => {
+    //     if (a.title > b.title) return 1;
+    //     if (a.title < b.title) return -1;
+    //     return 0;
+    //   });
+    //   const ctnMedia = document.querySelector(".mediaContainer");
+    //   while (ctnMedia.firstChild) {
+    //     ctnMedia.removeChild(ctnMedia.firstChild);
+    //   }
 
-      media(recupDataMedia, photographe);
-    });
-    buttonDD1.addEventListener("click", () => {
-      recupDataMedia.sort((a, b) => {
-        return a.likes - b.likes;
-      });
-      const ctnMedia = document.querySelector(".mediaContainer");
-      ////Suppression de l'ancien mediacontainer
-      while (ctnMedia.firstChild) {
-        ctnMedia.removeChild(ctnMedia.firstChild);
-      }
+    //   media(recupDataMedia, photographe);
+    // });
+    // buttonDD1.addEventListener("click", () => {
+    //   recupDataMedia.sort((a, b) => {
+    //     return a.likes - b.likes;
+    //   });
+    //   const ctnMedia = document.querySelector(".mediaContainer");
+    //   ////Suppression de l'ancien mediacontainer
+    //   while (ctnMedia.firstChild) {
+    //     ctnMedia.removeChild(ctnMedia.firstChild);
+    //   }
 
-      media(recupDataMedia, photographe);
-    });
+    //   media(recupDataMedia, photographe);
+    // });
 
     banneer(photographe, recupDataMedia);
     modal(photographe, recupDataMedia);
