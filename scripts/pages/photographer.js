@@ -81,7 +81,7 @@ class Photographers {
       // maxlength: "100",
     });
 
-    headerModalImg.src = "../assets/icons/close.svg";
+    headerModalImg.src = "assets/icons/close.svg";
 
     divModal.classList.add("modal");
     formModalBtn.classList.add("contact_button", "submit_modal");

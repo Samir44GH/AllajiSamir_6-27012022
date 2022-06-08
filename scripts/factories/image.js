@@ -68,7 +68,7 @@ class ImageFactory {
 
     this.elimg.setAttribute("alt", this.title);
 
-    this.elimg.src = "/assets/" + this.city + "/" + this.image;
+    this.elimg.src = "assets/" + this.city + "/" + this.image;
 
     //Ajout de l'élément elimg > imageLink > getUserCard//
     imageLink.appendChild(this.elimg);

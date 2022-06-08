@@ -49,7 +49,7 @@ class LightBox {
       LightBox.appendChild(LightBoxEl);
       if (!elCur.video)
         LightBoxEl.children[LightBoxEl.children.length - 1].children[0].src =
-          "/assets/" + this.city + "/" + elCur.image || elCur.video;
+          "assets/" + this.city + "/" + elCur.image || elCur.video;
     }
 
     //Fonction qui va faire l'animation de la gallerie
