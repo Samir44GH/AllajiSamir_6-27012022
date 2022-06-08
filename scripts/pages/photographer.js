@@ -3,7 +3,7 @@ class Photographers {
     console.log(photographers);
     console.log(recupDataMedia);
     this.name = photographers.name;
-
+    this.recupDataMedia = recupDataMedia;
     this.id = photographers.id;
     this.city = photographers.city;
     this.country = photographers.country;
@@ -156,6 +156,36 @@ class Photographers {
     btn.classList.add("contact_button", "open_modal");
     btn.textContent = "Contactez moi";
     btn.setAttribute("type", "button");
+
+    // for (let Cur of this.recupDataMedia) {
+    //   let buttonDD1 = document.querySelector(".buttonDD1");
+    //   let buttonDD2 = document.querySelector(".buttonDD2");
+
+    //   buttonDD2.addEventListener("click", () => {
+    //     Cur.sort((a, b) => {
+    //       if (a.title > b.title) return 1;
+    //       if (a.title < b.title) return -1;
+    //       return 0;
+    //     });
+    //     const ctnMedia = document.querySelector(".mediaContainer");
+    //     while (ctnMedia.firstChild) {
+    //       ctnMedia.removeChild(ctnMedia.firstChild);
+    //     }
+    //     return Cur;
+    //     // media(recupDataMedia, photographe);
+    //   });
+    //   buttonDD1.addEventListener("click", () => {
+    //     Cur.sort((a, b) => {
+    //       return a.likes - b.likes;
+    //     });
+    //     const ctnMedia = document.querySelector(".mediaContainer");
+    //     while (ctnMedia.firstChild) {
+    //       ctnMedia.removeChild(ctnMedia.firstChild);
+    //     }
+    //     return Cur;
+    //     // media(recupDataMedia, photographe);
+    //   });
+    // }
 
     // Ouverture de la modale
     btn.addEventListener("click", (event) => {

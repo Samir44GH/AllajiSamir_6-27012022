@@ -36,39 +36,39 @@ fetch("data/photographers.json")
       });
     console.log(recupDataMediaTitile);
 
-    let buttonDD1 = document.createElement("button");
-    let buttonDD2 = document.createElement("button");
-
     // let buttonDD1 = document.createElement("button");
     // let buttonDD2 = document.createElement("button");
 
     // let buttonDD1Id = document.querySelector(".buttonDD1");
     // let buttonDD2Id = document.querySelector(".buttonDD2");
 
-    buttonDD2.addEventListener("click", () => {
-      recupDataMedia.sort((a, b) => {
-        if (a.title > b.title) return 1;
-        if (a.title < b.title) return -1;
-        return 0;
-      });
-      const ctnMedia = document.querySelector(".mediaContainer");
-      while (ctnMedia.firstChild) {
-        ctnMedia.removeChild(ctnMedia.firstChild);
-      }
+    let buttonDD1 = document.querySelector(".buttonDD1");
+    let buttonDD2 = document.querySelector(".buttonDD2");
 
-      media(recupDataMedia, photographe);
-    });
-    buttonDD1.addEventListener("click", () => {
-      recupDataMedia.sort((a, b) => {
-        return a.likes - b.likes;
-      });
-      const ctnMedia = document.querySelector(".mediaContainer");
-      while (ctnMedia.firstChild) {
-        ctnMedia.removeChild(ctnMedia.firstChild);
-      }
+    // buttonDD2.addEventListener("click", () => {
+    //   recupDataMedia.sort((a, b) => {
+    //     if (a.title > b.title) return 1;
+    //     if (a.title < b.title) return -1;
+    //     return 0;
+    //   });
+    //   const ctnMedia = document.querySelector(".mediaContainer");
+    //   while (ctnMedia.firstChild) {
+    //     ctnMedia.removeChild(ctnMedia.firstChild);
+    //   }
 
-      media(recupDataMedia, photographe);
-    });
+    //   media(recupDataMedia, photographe);
+    // });
+    // buttonDD1.addEventListener("click", () => {
+    //   recupDataMedia.sort((a, b) => {
+    //     return a.likes - b.likes;
+    //   });
+    //   const ctnMedia = document.querySelector(".mediaContainer");
+    //   while (ctnMedia.firstChild) {
+    //     ctnMedia.removeChild(ctnMedia.firstChild);
+    //   }
+
+    //   media(recupDataMedia, photographe);
+    // });
 
     // document.addEventListener("click", (e) => {
     //   console.log(e.target.value);
