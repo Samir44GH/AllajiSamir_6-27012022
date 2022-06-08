@@ -1,8 +1,9 @@
 class ImageFactory {
   constructor(photographers, media) {
-    // console.log(media);
-    // console.log(photographers);
+    console.log(media);
+    console.log(photographers);
     this.name = photographers.name;
+    this.city = photographers.city;
     this.image = media.image;
     this.title = media.title;
     this.likes = media.likes;
@@ -67,7 +68,7 @@ class ImageFactory {
 
     this.elimg.setAttribute("alt", this.title);
 
-    this.elimg.src = "/assets/" + this.name + "/" + this.image;
+    this.elimg.src = "/assets/" + this.city + "/" + this.image;
 
     //Ajout de l'élément elimg > imageLink > getUserCard//
     imageLink.appendChild(this.elimg);

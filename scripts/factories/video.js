@@ -1,6 +1,7 @@
 class VideoFactory {
   constructor(photographers, media) {
     this.name = photographers.name;
+    this.city = photographers.city;
     this.video = media.video;
     this.title = media.title;
     this.likes = media.likes;
@@ -64,7 +65,7 @@ class VideoFactory {
     let elsrc = document.createElement("source");
     this.elvid.setAttribute("alt", this.title);
 
-    elsrc.src = "assets/" + this.name + "/" + this.video;
+    elsrc.src = "assets/" + this.city + "/" + this.video;
     this.elvid.appendChild(elsrc);
     videoLink.appendChild(this.elvid);
     getUserCard.prepend(videoLink);
