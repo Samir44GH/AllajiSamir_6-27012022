@@ -205,69 +205,69 @@ class Photographers {
 
     return article;
   }
-  dropDown() {
-    let dropDown = document.createElement("div");
-    let containerTrie = document.createElement("div");
-    let containerDropDown = document.createElement("nav");
-    let containerBtnDD = document.createElement("div");
-    let buttonDD1 = document.createElement("button");
-    let buttonDD2 = document.createElement("button");
-    let spanDD1 = document.createElement("span");
+  // dropDown() {
+  //   let dropDown = document.createElement("div");
+  //   let containerTrie = document.createElement("div");
+  //   let containerDropDown = document.createElement("nav");
+  //   let containerBtnDD = document.createElement("div");
+  //   let buttonDD1 = document.createElement("button");
+  //   let buttonDD2 = document.createElement("button");
+  //   let spanDD1 = document.createElement("span");
 
-    containerTrie.classList.add("containerSort");
-    dropDown.classList.add("dropDown");
-    containerBtnDD.classList.add("containerBtn");
-    containerDropDown.classList.add("containerDD");
-    buttonDD1.classList.add("buttonDropDown", "contact_button", "buttonDD1");
-    buttonDD2.classList.add(
-      "buttonDropDown",
-      "contact_button",
-      "disappear",
-      "buttonDD2"
-    );
-    spanDD1.classList.add("fas", "fa-chevron-down", "btnArrow");
+  //   containerTrie.classList.add("containerSort");
+  //   dropDown.classList.add("dropDown");
+  //   containerBtnDD.classList.add("containerBtn");
+  //   containerDropDown.classList.add("containerDD");
+  //   buttonDD1.classList.add("buttonDropDown", "contact_button", "buttonDD1");
+  //   buttonDD2.classList.add(
+  //     "buttonDropDown",
+  //     "contact_button",
+  //     "disappear",
+  //     "buttonDD2"
+  //   );
+  //   spanDD1.classList.add("fas", "fa-chevron-down", "btnArrow");
 
-    containerDropDown.setAttribute("role", "naviguation"),
-      containerDropDown.setAttribute("aria-expanded", "true");
-    buttonDD1.getAttribute("aria-label", "Trier par popularité");
-    buttonDD2.getAttribute("aria-label", "Trier par titre");
-    spanDD1.setAttribute("aria-hidden", "true");
+  //   containerDropDown.setAttribute("role", "naviguation"),
+  //     containerDropDown.setAttribute("aria-expanded", "true");
+  //   buttonDD1.getAttribute("aria-label", "Trier par popularité");
+  //   buttonDD2.getAttribute("aria-label", "Trier par titre");
+  //   spanDD1.setAttribute("aria-hidden", "true");
 
-    containerTrie.textContent = "Trier par";
-    buttonDD1.textContent = "Popularité";
-    buttonDD2.textContent = "Titre";
+  //   containerTrie.textContent = "Trier par";
+  //   buttonDD1.textContent = "Popularité";
+  //   buttonDD2.textContent = "Titre";
 
-    Object.assign(containerDropDown, {
-      class: "containerDD",
-      id: "containerDD",
-    });
-    Object.assign(buttonDD1, {
-      type: "button",
-      id: "buttonDrop1",
-      value: "Popularité",
-    });
-    Object.assign(buttonDD2, {
-      type: "button",
-      id: "buttonDrop2",
-      value: "Titre",
-    });
-    //Le clic du bouto spannDD1 permet l'apparation du menu en entier, plus la rotation .fas
-    spanDD1.addEventListener("click", (event) => {
-      event.preventDefault();
-      this.buttonDD2Appear();
-    });
-    //Enfants de containerDropDown
-    containerDropDown.appendChild(containerBtnDD);
-    //Enfants de containerBtnDD
-    containerBtnDD.appendChild(buttonDD1);
-    containerBtnDD.appendChild(buttonDD2);
-    //Enfants de containerDropDown
-    containerDropDown.appendChild(spanDD1);
-    //Enfants de dropDown
-    dropDown.appendChild(containerTrie);
-    dropDown.appendChild(containerDropDown);
-    return dropDown;
-  }
+  //   Object.assign(containerDropDown, {
+  //     class: "containerDD",
+  //     id: "containerDD",
+  //   });
+  //   Object.assign(buttonDD1, {
+  //     type: "button",
+  //     id: "buttonDrop1",
+  //     value: "Popularité",
+  //   });
+  //   Object.assign(buttonDD2, {
+  //     type: "button",
+  //     id: "buttonDrop2",
+  //     value: "Titre",
+  //   });
+  //   //Le clic du bouto spannDD1 permet l'apparation du menu en entier, plus la rotation .fas
+  //   spanDD1.addEventListener("click", (event) => {
+  //     event.preventDefault();
+  //     this.buttonDD2Appear();
+  //   });
+  //   //Enfants de containerDropDown
+  //   containerDropDown.appendChild(containerBtnDD);
+  //   //Enfants de containerBtnDD
+  //   containerBtnDD.appendChild(buttonDD1);
+  //   containerBtnDD.appendChild(buttonDD2);
+  //   //Enfants de containerDropDown
+  //   containerDropDown.appendChild(spanDD1);
+  //   //Enfants de dropDown
+  //   dropDown.appendChild(containerTrie);
+  //   dropDown.appendChild(containerDropDown);
+  //   return dropDown;
+  // }
 
   //Fonction qui permet d'ouvrir la modale
   displayModal() {

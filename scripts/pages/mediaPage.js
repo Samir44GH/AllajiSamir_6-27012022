@@ -41,69 +41,81 @@ fetch("data/photographers.json")
 
     // let buttonDD1Id = document.querySelector(".buttonDD1");
     // let buttonDD2Id = document.querySelector(".buttonDD2");
+    let spanDD1 = document.querySelector(".btnArrow");
 
-    let buttonDD1 = document.querySelector(".buttonDD1");
-    let buttonDD2 = document.querySelector(".buttonDD2");
+    let buttonDD1 = document.querySelector("#buttonDrop1");
+    let buttonDD2 = document.querySelector("#buttonDrop2");
 
-    // window.onload = function () {
-    //   console.log("connected");
-    //   let buttonDD1 = document.querySelector(".buttonDD1");
-    //   let buttonDD2 = document.querySelector(".buttonDD2");
-    //   buttonDD2.addEventListener("click", () => {
-    //     recupDataMedia.sort((a, b) => {
-    //       if (a.title > b.title) return 1;
-    //       if (a.title < b.title) return -1;
-    //       return 0;
-    //     });
-    //     const ctnMedia = document.querySelector(".mediaContainer");
-    //     while (ctnMedia.firstChild) {
-    //       ctnMedia.removeChild(ctnMedia.firstChild);
-    //     }
+    //Le clic du bouto spannDD1 permet l'apparation du menu en entier, plus la rotation .fas
+    spanDD1.addEventListener("click", (event) => {
+      event.preventDefault();
+      buttonDD2Appear();
+    });
 
-    //     media(recupDataMedia, photographe);
-    //   });
-    //   buttonDD1.addEventListener("click", () => {
-    //     recupDataMedia.sort((a, b) => {
-    //       return a.likes - b.likes;
-    //     });
-    //     const ctnMedia = document.querySelector(".mediaContainer");
-    //     ////Suppression de l'ancien mediacontainer
-    //     while (ctnMedia.firstChild) {
-    //       ctnMedia.removeChild(ctnMedia.firstChild);
-    //     }
+    function buttonDD2Appear() {
+      let buttonDD1Id = document.getElementById("buttonDrop1");
+      let buttonDD2Id = document.getElementById("buttonDrop2");
+      buttonDD1Id.blur;
+      //Apparition du menu
+      function menuDDVisible(para) {
+        document.querySelector("#buttonDrop2").classList.contains("disappear");
+        let buttonDD2Id = document.getElementById("buttonDrop2");
+        if (para === "appear") {
+          buttonDD2Id.classList.remove("disappear");
+        } else if (para === "disappear") {
+          buttonDD2Id.classList.add("disappear");
+        }
+      }
+      //Apparition du menu lorsque le buttonDRop2 apparait
+      if (
+        document.querySelector("#buttonDrop2").classList.contains("disappear")
+      ) {
+        menuDDVisible("appear");
+        buttonDD2Id.setAttribute("aria-expanded", "true");
+      } else {
+        menuDDVisible("disappear");
+        buttonDD2Id.setAttribute("aria-expanded", "false");
+      }
+      // Rotation icon FA chevron: ajout/retrait class rotate
+      if (document.querySelector(".fas").classList.contains("rotate")) {
+        document.querySelector(".fas").classList.remove("rotate");
+        // document.querySelector(".fas").classList.add("rotateIn");
+      } else {
+        document.querySelector(".fas").classList.add("rotate");
+      }
+    }
 
-    //     media(recupDataMedia, photographe);
-    //   });
-    // };
-    // buttonDD2.addEventListener("click", () => {
-    //   recupDataMedia.sort((a, b) => {
-    //     if (a.title > b.title) return 1;
-    //     if (a.title < b.title) return -1;
-    //     return 0;
-    //   });
-    //   const ctnMedia = document.querySelector(".mediaContainer");
-    //   while (ctnMedia.firstChild) {
-    //     ctnMedia.removeChild(ctnMedia.firstChild);
-    //   }
+    buttonDD2.addEventListener("click", () => {
+      recupDataMedia.sort((a, b) => {
+        if (a.title > b.title) return 1;
+        if (a.title < b.title) return -1;
+        return 0;
+      });
+      const ctnMedia = document.querySelector(".mediaContainer");
+      while (ctnMedia.firstChild) {
+        ctnMedia.removeChild(ctnMedia.firstChild);
+      }
 
-    //   media(recupDataMedia, photographe);
-    // });
-    // buttonDD1.addEventListener("click", () => {
-    //   recupDataMedia.sort((a, b) => {
-    //     return a.likes - b.likes;
-    //   });
-    //   const ctnMedia = document.querySelector(".mediaContainer");
-    //   ////Suppression de l'ancien mediacontainer
-    //   while (ctnMedia.firstChild) {
-    //     ctnMedia.removeChild(ctnMedia.firstChild);
-    //   }
+      media(recupDataMedia, photographe);
+    });
+    buttonDD1.addEventListener("click", () => {
+      console.clear();
+      console.log("btndd1");
+      recupDataMedia.sort((a, b) => {
+        return a.likes - b.likes;
+      });
+      const ctnMedia = document.querySelector(".mediaContainer");
+      ////Suppression de l'ancien mediacontainer
+      while (ctnMedia.firstChild) {
+        ctnMedia.removeChild(ctnMedia.firstChild);
+      }
 
-    //   media(recupDataMedia, photographe);
-    // });
+      media(recupDataMedia, photographe);
+    });
 
     banneer(photographe, recupDataMedia);
     modal(photographe, recupDataMedia);
-    dropDown(photographe, recupDataMedia);
+    // dropDown(photographe, recupDataMedia);
     media(recupDataMedia, photographe);
     LB(recupDataMedia, photographe);
   });
@@ -153,12 +165,12 @@ function modal(photographer, listDataPhotographer) {
 //   console.log(instanceB.modalPhotographer);
 // }
 
-function dropDown(photographers, listDataPhotographer) {
-  // console.log(listDataPhotographer);
-  let instanceB = new Photographers(photographers[0], listDataPhotographer);
-  console.log(instanceB);
-  document
-    .querySelector(".dropDownContainer")
-    .appendChild(instanceB.dropDown());
-  console.log(instanceB.dropDown);
-}
+// function dropDown(photographers, listDataPhotographer) {
+//   // console.log(listDataPhotographer);
+//   let instanceB = new Photographers(photographers[0], listDataPhotographer);
+//   console.log(instanceB);
+//   document
+//     .querySelector(".dropDownContainer")
+//     .appendChild(instanceB.dropDown());
+//   console.log(instanceB.dropDown);
+// }

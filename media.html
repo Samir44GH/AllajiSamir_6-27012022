@@ -25,7 +25,39 @@
     </header>
     <main id="main">
       <div class="photograph-header"></div>
-      <div class="dropDownContainer"></div>
+      <div class="dropDownContainer">
+        <div class="dropDown">
+          <div class="containerSort">Trier par</div>
+          <nav
+            class="containerDD"
+            role="naviguation"
+            aria-expanded="true"
+            id="containerDD"
+          >
+            <div class="containerBtn">
+              <button
+                class="buttonDropDown contact_button buttonDD1"
+                type="button"
+                id="buttonDrop1"
+                value="Popularité"
+              >
+                Popularité</button
+              ><button
+                class="buttonDropDown contact_button disappear buttonDD2"
+                type="button"
+                id="buttonDrop2"
+                value="Titre"
+              >
+                Titre
+              </button>
+            </div>
+            <span
+              class="fas fa-chevron-down btnArrow"
+              aria-hidden="true"
+            ></span>
+          </nav>
+        </div>
+      </div>
       <div class="mediaContainer"></div>
     </main>
     <div id="contact_modal">

@@ -68,7 +68,7 @@ class ImageFactory {
     });
 
     this.elimg.setAttribute("alt", this.title);
-
+    this.elimg.loading = "lazy";
     this.elimg.src = "assets/" + this.country + "/" + this.image;
 
     //Ajout de l'élément elimg > imageLink > getUserCard//
