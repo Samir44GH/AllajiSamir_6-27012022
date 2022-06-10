@@ -33,6 +33,18 @@ class VideoFactory {
     spanLikeNumber.textContent = this.likes;
     IcButton.addEventListener("click", (e) => {
       spanLikeNumber.textContent = parseInt(spanLikeNumber.textContent) + 1;
+      // Tableau arrayNbrLike contient les likes de chaque média
+      const arrayNbrLike = [];
+      document.querySelectorAll(".likeNumber").forEach((el) => {
+        arrayNbrLike.push(Number(el.textContent));
+      });
+      // Addition de tous les likes du tableau dans total
+      let totalLike = arrayNbrLike.reduce(function (el, cur) {
+        return el + cur;
+      });
+      document.querySelector(".compteurLikeNbr").textContent =
+        parseInt(totalLike) + 1;
+
       console.log("Hello");
     });
 
