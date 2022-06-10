@@ -172,6 +172,7 @@ h1 {
 
 .heart {
   color: #ea2027;
+  display: flex;
 }
 
 .heart:hover {
@@ -200,7 +201,8 @@ h1 {
 .heartComplementary {
   color: #000000;
   font-size: 1.4em;
-  display: flex;
+  /* display: flex; */
+  padding-top: 5%;
 }
 
 .compteurLikePrice {
@@ -244,7 +246,12 @@ h1 {
 }
 
 /* .likeNbrSpan {
+ 
+} */
+/* .fa,
+.fas {
   display: flex;
+  justify-content: center;
 } */
 
 .likeNbrSpan::before {
