@@ -36,13 +36,7 @@ fetch("data/photographers.json")
       });
     console.log(recupDataMediaTitile);
 
-    // let buttonDD1 = document.createElement("button");
-    // let buttonDD2 = document.createElement("button");
-
-    // let buttonDD1Id = document.querySelector(".buttonDD1");
-    // let buttonDD2Id = document.querySelector(".buttonDD2");
     let spanDD1 = document.querySelector(".btnArrow");
-
     let buttonDD1 = document.querySelector("#buttonDrop1");
     let buttonDD2 = document.querySelector("#buttonDrop2");
 
@@ -79,7 +73,6 @@ fetch("data/photographers.json")
       // Rotation icon FA chevron: ajout/retrait class rotate
       if (document.querySelector(".fas").classList.contains("rotate")) {
         document.querySelector(".fas").classList.remove("rotate");
-        // document.querySelector(".fas").classList.add("rotateIn");
       } else {
         document.querySelector(".fas").classList.add("rotate");
       }
@@ -109,15 +102,14 @@ fetch("data/photographers.json")
       while (ctnMedia.firstChild) {
         ctnMedia.removeChild(ctnMedia.firstChild);
       }
-
       media(recupDataMedia, photographe);
     });
 
     banneer(photographe, recupDataMedia);
     modal(photographe, recupDataMedia);
-    // dropDown(photographe, recupDataMedia);
     media(recupDataMedia, photographe);
     LB(recupDataMedia, photographe);
+    containerComplementary(recupDataMedia, photographe);
   });
 
 function media(data, photographe) {
@@ -155,15 +147,15 @@ function modal(photographer, listDataPhotographer) {
     .appendChild(instanceB.modalPhotographer());
   console.log(instanceB.modalPhotographer);
 }
-// function modal(photographer) {
-//   // console.log(data);
-//   let instanceB = new modalContact(photographer[0]);
-//   console.log(instanceB);
-//   document
-//     .querySelector("#contact_modal")
-//     .appendChild(instanceB.modalPhotographer());
-//   console.log(instanceB.modalPhotographer);
-// }
+function containerComplementary(data, photographe) {
+  // console.log(data);
+  let instanceB = new MediaFactory(photographe[0], data);
+  console.log(instanceB);
+  document.body
+    // .querySelector("#complementary")
+    .appendChild(instanceB.CompteurNbrLikesPrice());
+  console.log(instanceB.CompteurNbrLikesPrice);
+}
 
 // function dropDown(photographers, listDataPhotographer) {
 //   // console.log(listDataPhotographer);

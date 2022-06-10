@@ -8,6 +8,7 @@ class ImageFactory {
     this.image = media.image;
     this.title = media.title;
     this.likes = media.likes;
+    this.price = photographers.price;
     console.log(media.image);
     this.elimg = document.createElement("img");
   }
@@ -36,6 +37,17 @@ class ImageFactory {
 
     IcButton.addEventListener("click", (e) => {
       spanLikeNumber.textContent = parseInt(spanLikeNumber.textContent) + 1;
+      // Tableau arrayNbrLike contient les likes de chaque média
+      const arrayNbrLike = [];
+      document.querySelectorAll(".likeNumber").forEach((el) => {
+        arrayNbrLike.push(Number(el.textContent));
+      });
+      // Addition de tous les likes du tableau dans total
+      let totalLike = arrayNbrLike.reduce(function (el, cur) {
+        return el + cur;
+      });
+      document.querySelector(".compteurLikeNbr").textContent =
+        parseInt(totalLike) + 1;
       console.log("Hello");
     });
 
@@ -80,5 +92,42 @@ class ImageFactory {
   openLB() {
     let LightBox = document.querySelector(".lightboxContainer");
     LightBox.style.display = "block";
+  }
+
+  CompteurNbrLikesPrice() {
+    let compteurLikePrice = document.createElement("div");
+    let compteurLike = document.createElement("div");
+    let compteurLikeNbr = document.createElement("div");
+    let containerPrice = document.createElement("div");
+    let likeNbrSpan = document.createElement("span");
+
+    //// Tableau arrayNbrLike contient les likes de chaque média
+    const arrayNbrLike = [];
+    document.querySelectorAll(".likeNumber").forEach((el) => {
+      arrayNbrLike.push(Number(el.textContent));
+    });
+    //// Addition de tous les likes du tableau dans total
+    let totalLike = arrayNbrLike.reduce(function (el, cur) {
+      return el + cur;
+    });
+
+    compteurLikePrice.classList.add("compteurLikePrice");
+    compteurLike.classList.add("compteurLike");
+    compteurLikeNbr.classList.add("compteurLikeNbr");
+    containerPrice.classList.add("containerPrice");
+    likeNbrSpan.classList.add(
+      "fas",
+      "fa-heart",
+      "heartComplementary",
+      "likeNbrSpan"
+    );
+    compteurLikeNbr.textContent = totalLike;
+    containerPrice.textContent = this.price + "€/jour";
+
+    compteurLike.appendChild(compteurLikeNbr);
+    compteurLike.appendChild(likeNbrSpan);
+    compteurLikePrice.appendChild(compteurLike);
+    compteurLikePrice.appendChild(containerPrice);
+    return compteurLikePrice;
   }
 }

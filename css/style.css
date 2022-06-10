@@ -195,5 +195,57 @@ h1 {
     transform: scale(1);
   }
 }
-/**********LIGHTBOX************/
-/*Insérer le ccs de jsfiddle*/
+/**********COMPTEUR LIKES & PRICE************/
+
+.heartComplementary {
+  color: #000000;
+  font-size: 1.4em;
+}
+
+.compteurLikePrice {
+  position: fixed;
+  right: 3%;
+  bottom: 0%;
+  width: 360px;
+  height: 65px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-radius: 5px;
+  background: #db8876;
+  border-radius: 5px;
+}
+
+.containerPrice {
+  font-family: "DM Sans";
+  font-style: normal;
+  font-weight: bolder;
+  font-size: 24px;
+  line-height: 31px;
+  text-align: center;
+  color: #000000;
+}
+
+.compteurLike {
+  display: flex;
+  justify-content: space-between;
+  width: 20%;
+}
+
+.compteurLikeNbr {
+  font-family: "DM Sans";
+  font-style: normal;
+  font-weight: bolder;
+  font-size: 24px;
+  line-height: 31px;
+  text-align: center;
+  color: #000000;
+}
+
+.likeNbrSpan {
+  display: flex;
+}
+
+.likeNbrSpan::before {
+  align-self: center;
+}
