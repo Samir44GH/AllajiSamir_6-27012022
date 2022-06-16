@@ -12,6 +12,49 @@ class Photographers {
     this.portrait = "assets/photographers/" + photographers.portrait;
   }
 
+  getUserBannerDOM() {
+    const article = document.createElement("article");
+    const img = document.createElement("img");
+    const h2 = document.createElement("h2");
+    const div1 = document.createElement("div");
+    const h4 = document.createElement("h4");
+    const btn = document.createElement("button");
+    const p1 = document.createElement("p");
+
+    article.classList.add("photographer_banner_card");
+    img.classList.add("photographer_banner_img");
+    img.src = /*"../assets/photographers/" +*/ this.portrait;
+    img.setAttribute("alt", this.name);
+    h2.textContent = this.name;
+    h2.classList.add("photographer_banner_name");
+    div1.classList.add("photographer_banner_description");
+    h4.textContent = this.city + ", " + this.country;
+    h4.classList.add("banner_city");
+    btn.classList.add("contact_button", "open_modal");
+    btn.textContent = "Contactez moi";
+    btn.setAttribute("type", "button");
+
+    // Ouverture de la modale
+    btn.addEventListener("click", (event) => {
+      event.preventDefault();
+      this.displayModal();
+    });
+
+    p1.textContent = this.tagline;
+    p1.classList.add("banner_tagline");
+
+    //Enfants de l'article
+    article.appendChild(div1);
+    article.appendChild(btn);
+    article.appendChild(img);
+    //Enfants de div1
+    div1.appendChild(h2);
+    div1.appendChild(h4);
+    div1.appendChild(p1);
+
+    return article;
+  }
+
   modalPhotographer() {
     const divModal = document.createElement("div");
     const headerModal = document.createElement("header");
@@ -43,6 +86,9 @@ class Photographers {
     mDivLabelNom.setAttribute("for", "last");
     mDivLabelAdresse.setAttribute("for", "email");
     mDivLabelMessage.setAttribute("for", "message");
+
+    mDivInputPrenom.setAttribute("minlength", "2");
+    mDivInputNom.setAttribute("minlength", "2");
 
     Object.assign(mDivInputPrenom, {
       class: "text-control",
@@ -76,8 +122,7 @@ class Photographers {
       type: "message",
       id: "message",
       name: "message",
-      placeholder: "Minimum 10 caractères",
-      minlength: "10",
+      placeholder: "Laissez votre message",
     });
 
     headerModalImg.src = "assets/icons/close.svg";
@@ -96,14 +141,15 @@ class Photographers {
       console.log(e.target.message.value);
     };
 
+    // Submit form
+    formModal.onsubmit = (e) => validate(e);
+
     // Fermeture de la modale
     headerModalImg.addEventListener("click", (event) => {
       event.preventDefault();
       this.closeModal();
     });
 
-    // Submit form
-    formModal.onsubmit = (e) => validate(e);
     //Enfant de header
     headerModal.appendChild(headerModalH2);
     headerModal.appendChild(headerModalImg);
@@ -134,85 +180,10 @@ class Photographers {
     modal.style.display = "none";
   }
 
-  getUserBannerDOM() {
-    const article = document.createElement("article");
-    const img = document.createElement("img");
-    const h2 = document.createElement("h2");
-    const div1 = document.createElement("div");
-    const h4 = document.createElement("h4");
-    const btn = document.createElement("button");
-    const p1 = document.createElement("p");
-
-    article.classList.add("photographer_banner_card");
-    img.classList.add("photographer_banner_img");
-    img.src = /*"../assets/photographers/" +*/ this.portrait;
-    img.setAttribute("alt", this.name);
-    h2.textContent = this.name;
-    h2.classList.add("photographer_banner_name");
-    div1.classList.add("photographer_banner_description");
-    h4.textContent = this.city + ", " + this.country;
-    h4.classList.add("banner_city");
-    btn.classList.add("contact_button", "open_modal");
-    btn.textContent = "Contactez moi";
-    btn.setAttribute("type", "button");
-
-    // Ouverture de la modale
-    btn.addEventListener("click", (event) => {
-      event.preventDefault();
-      this.displayModal();
-    });
-
-    p1.textContent = this.tagline;
-    p1.classList.add("banner_tagline");
-
-    article.appendChild(div1);
-    article.appendChild(btn);
-    article.appendChild(img);
-    div1.appendChild(h2);
-    div1.appendChild(h4);
-    div1.appendChild(p1);
-
-    return article;
-  }
-
   //Fonction qui permet d'ouvrir la modale
   displayModal() {
     const modal = document.querySelector("#contact_modal");
     modal.style.display = "block";
-  }
-
-  //Apparition du bouton DD2
-  buttonDD2Appear() {
-    let buttonDD1Id = document.getElementById("buttonDrop1");
-    let buttonDD2Id = document.getElementById("buttonDrop2");
-    buttonDD1Id.blur;
-    //Apparition du menu
-    function menuDDVisible(para) {
-      document.querySelector("#buttonDrop2").classList.contains("disappear");
-      let buttonDD2Id = document.getElementById("buttonDrop2");
-      if (para === "appear") {
-        buttonDD2Id.classList.remove("disappear");
-      } else if (para === "disappear") {
-        buttonDD2Id.classList.add("disappear");
-      }
-    }
-    //Apparition du menu lorsque le buttonDRop2 apparait
-    if (
-      document.querySelector("#buttonDrop2").classList.contains("disappear")
-    ) {
-      menuDDVisible("appear");
-      buttonDD2Id.setAttribute("aria-expanded", "true");
-    } else {
-      menuDDVisible("disappear");
-      buttonDD2Id.setAttribute("aria-expanded", "false");
-    }
-    // Rotation icon FA chevron: ajout/retrait class rotate
-    if (document.querySelector(".fas").classList.contains("rotate")) {
-      document.querySelector(".fas").classList.remove("rotate");
-      // document.querySelector(".fas").classList.add("rotateIn");
-    } else {
-      document.querySelector(".fas").classList.add("rotate");
-    }
   }
 }
 
@@ -308,4 +279,38 @@ class Photographers {
 //   dropDown.appendChild(containerTrie);
 //   dropDown.appendChild(containerDropDown);
 //   return dropDown;
+// }
+
+// ////Apparition du bouton DD2
+// buttonDD2Appear() {
+//   let buttonDD1Id = document.getElementById("buttonDrop1");
+//   let buttonDD2Id = document.getElementById("buttonDrop2");
+//   buttonDD1Id.blur;
+//   ////Apparition du menu
+//   function menuDDVisible(para) {
+//     document.querySelector("#buttonDrop2").classList.contains("disappear");
+//     let buttonDD2Id = document.getElementById("buttonDrop2");
+//     if (para === "appear") {
+//       buttonDD2Id.classList.remove("disappear");
+//     } else if (para === "disappear") {
+//       buttonDD2Id.classList.add("disappear");
+//     }
+//   }
+//   ////Apparition du menu lorsque le buttonDRop2 apparait
+//   if (
+//     document.querySelector("#buttonDrop2").classList.contains("disappear")
+//   ) {
+//     menuDDVisible("appear");
+//     buttonDD2Id.setAttribute("aria-expanded", "true");
+//   } else {
+//     menuDDVisible("disappear");
+//     buttonDD2Id.setAttribute("aria-expanded", "false");
+//   }
+//   //// Rotation icon FA chevron: ajout/retrait class rotate
+//   if (document.querySelector(".fas").classList.contains("rotate")) {
+//     document.querySelector(".fas").classList.remove("rotate");
+//     //// document.querySelector(".fas").classList.add("rotateIn");
+//   } else {
+//     document.querySelector(".fas").classList.add("rotate");
+//   }
 // }

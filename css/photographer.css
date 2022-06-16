@@ -239,7 +239,8 @@ form input {
   align-items: center;
   padding-right: 0;
 }
-#buttonDrop2 {
+#buttonDrop2,
+#buttonDrop3 {
   border-top: 2px white solid;
   border-radius: unset;
   padding: 0 3.5em 0 0;

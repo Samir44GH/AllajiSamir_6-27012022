@@ -26,6 +26,7 @@ class LightBox {
     //Element courant de la galeire
     let imageCur = -1;
 
+    // Boucle qui permet l'affichage des iamges dans la lightbox
     for (let elCur of this.listMedia) {
       let LBimage = elCur.video
         ? this.createVideo(elCur.video)

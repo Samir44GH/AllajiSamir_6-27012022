@@ -4,16 +4,17 @@ fetch("data/photographers.json")
 
 async function displayData(photographers) {
   const photographersSection = document.querySelector(".photographer_section");
-
+  // Récupère les datas des photographes
   photographers.forEach((photographer) => {
     const photographerModel = photographerFactory(photographer);
     const userCardDOM = photographerModel.getUserCardDOM();
+    //Utilisation des données des photographes dans la div .photographer_section
     photographersSection.appendChild(userCardDOM);
   });
 }
 
 // async function init() {
-//   // Récupère les datas des photographes
+//
 //   const { photographers } = await getPhotographers();
 //   //displayData(photographers);
 // }

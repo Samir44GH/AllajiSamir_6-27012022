@@ -1,5 +1,7 @@
 fetch("data/photographers.json")
+  //Première promesse qui va avoir notre réponse (transformation de nos données en json)
   .then((res) => res.json())
+  //Deuxième promesse qui va nous permettre d'avoir accès à nos données
   .then((data) => {
     // récupération de la chaine de requête dans l'url
     const queryString_url_id = window.location.search;
@@ -11,34 +13,24 @@ fetch("data/photographers.json")
 
     const id = urlSearchParams.get("id");
     // console.log(id);
+
+    //Retourne un nouveau tableau avec les éléments des photographes
     const photographe = data.photographers.filter(
       (element) => element.id === parseInt(id)
     );
     //console.log(photographe);
+
+    //Retourne un nouveau tableau avec les éléments des médias
     const recupDataMedia = data.media.filter(
       (element) => element.photographerId === parseInt(id)
     );
     console.log(recupDataMedia);
 
-    const recupDataMediaPop = data.media
-      .filter((element) => element.photographerId === parseInt(id))
-      .sort(function (a, b) {
-        return a.likes - b.likes;
-      });
-    console.log(recupDataMediaPop);
-
-    const recupDataMediaTitile = data.media
-      .filter((element) => element.photographerId === parseInt(id))
-      .sort(function (a, b) {
-        if (a.title > b.title) return 1;
-        if (a.title < b.title) return -1;
-        return 0;
-      });
-    console.log(recupDataMediaTitile);
-
+    /* /////////////DROPDOWN///////////// */
     let spanDD1 = document.querySelector(".btnArrow");
     let buttonDD1 = document.querySelector("#buttonDrop1");
     let buttonDD2 = document.querySelector("#buttonDrop2");
+    let buttonDD3 = document.querySelector("#buttonDrop3");
 
     //Le clic du bouto spannDD1 permet l'apparation du menu en entier, plus la rotation .fas
     spanDD1.addEventListener("click", (event) => {
@@ -46,9 +38,11 @@ fetch("data/photographers.json")
       buttonDD2Appear();
     });
 
+    //Apparition du bouton DD2
     function buttonDD2Appear() {
       let buttonDD1Id = document.getElementById("buttonDrop1");
       let buttonDD2Id = document.getElementById("buttonDrop2");
+      let buttonDD3Id = document.getElementById("buttonDrop3");
       buttonDD1Id.blur;
       //Apparition du menu
       function menuDDVisible(para) {
@@ -56,8 +50,10 @@ fetch("data/photographers.json")
         let buttonDD2Id = document.getElementById("buttonDrop2");
         if (para === "appear") {
           buttonDD2Id.classList.remove("disappear");
+          buttonDD3Id.classList.remove("disappear");
         } else if (para === "disappear") {
           buttonDD2Id.classList.add("disappear");
+          buttonDD3Id.classList.add("disappear");
         }
       }
       //Apparition du menu lorsque le buttonDRop2 apparait
@@ -66,9 +62,11 @@ fetch("data/photographers.json")
       ) {
         menuDDVisible("appear");
         buttonDD2Id.setAttribute("aria-expanded", "true");
+        buttonDD3Id.setAttribute("aria-expanded", "true");
       } else {
         menuDDVisible("disappear");
         buttonDD2Id.setAttribute("aria-expanded", "false");
+        buttonDD3Id.setAttribute("aria-expanded", "false");
       }
       // Rotation icon FA chevron: ajout/retrait class rotate
       if (document.querySelector(".fas").classList.contains("rotate")) {
@@ -78,19 +76,7 @@ fetch("data/photographers.json")
       }
     }
 
-    buttonDD2.addEventListener("click", () => {
-      recupDataMedia.sort((a, b) => {
-        if (a.title > b.title) return 1;
-        if (a.title < b.title) return -1;
-        return 0;
-      });
-      const ctnMedia = document.querySelector(".mediaContainer");
-      while (ctnMedia.firstChild) {
-        ctnMedia.removeChild(ctnMedia.firstChild);
-      }
-
-      media(recupDataMedia, photographe);
-    });
+    //Tri de la gallerie selon la popularité dans l'ordre croissant
     buttonDD1.addEventListener("click", () => {
       console.clear();
       console.log("btndd1");
@@ -102,6 +88,38 @@ fetch("data/photographers.json")
       while (ctnMedia.firstChild) {
         ctnMedia.removeChild(ctnMedia.firstChild);
       }
+      media(recupDataMedia, photographe);
+    });
+
+    //Tri de la gallerie selon les titres dans l'ordre croissant
+    buttonDD2.addEventListener("click", () => {
+      recupDataMedia.sort((a, b) => {
+        if (a.title > b.title) return 1;
+        if (a.title < b.title) return -1;
+        return 0;
+      });
+      const ctnMedia = document.querySelector(".mediaContainer");
+      ////Suppression de l'ancien mediacontainer
+      while (ctnMedia.firstChild) {
+        ctnMedia.removeChild(ctnMedia.firstChild);
+      }
+
+      media(recupDataMedia, photographe);
+    });
+
+    //Tri de la gallerie selon les dates dans l'ordre croissant
+    buttonDD3.addEventListener("click", () => {
+      recupDataMedia.sort((a, b) => {
+        if (a.date > b.date) return 1;
+        if (a.date < b.date) return -1;
+        return 0;
+      });
+      const ctnMedia = document.querySelector(".mediaContainer");
+      ////Suppression de l'ancien mediacontainer
+      while (ctnMedia.firstChild) {
+        ctnMedia.removeChild(ctnMedia.firstChild);
+      }
+
       media(recupDataMedia, photographe);
     });
 
@@ -118,14 +136,6 @@ function media(data, photographe) {
     let instanceMedia = new MediaFactory(photographe[0], cur);
     document.querySelector(".mediaContainer").appendChild(instanceMedia.draw());
   }
-}
-
-function LB(data, photographe) {
-  // console.log(data);
-  let instanceLB = new LightBox(data, photographe[0]);
-  console.log(instanceLB);
-  document.body.appendChild(instanceLB.draw());
-  console.log(instanceLB.draw);
 }
 
 function banneer(photographers, listDataPhotographer) {
@@ -147,12 +157,21 @@ function modal(photographer, listDataPhotographer) {
     .appendChild(instanceB.modalPhotographer());
   console.log(instanceB.modalPhotographer);
 }
+
+function LB(data, photographe) {
+  // console.log(data);
+  let instanceLB = new LightBox(data, photographe[0]);
+  console.log(instanceLB);
+  document.body.appendChild(instanceLB.draw());
+  console.log(instanceLB.draw);
+}
+
 function containerComplementary(data, photographe) {
   // console.log(data);
   let instanceB = new MediaFactory(photographe[0], data);
   console.log(instanceB);
-  document.body
-    // .querySelector("#complementary")
+  document
+    .querySelector("#complementary")
     .appendChild(instanceB.CompteurNbrLikesPrice());
   console.log(instanceB.CompteurNbrLikesPrice);
 }
@@ -166,3 +185,19 @@ function containerComplementary(data, photographe) {
 //     .appendChild(instanceB.dropDown());
 //   console.log(instanceB.dropDown);
 // }
+
+// const recupDataMediaPop = data.media
+//   .filter((element) => element.photographerId === parseInt(id))
+//   .sort(function (a, b) {
+//     return a.likes - b.likes;
+//   });
+// console.log(recupDataMediaPop);
+
+// const recupDataMediaTitile = data.media
+//   .filter((element) => element.photographerId === parseInt(id))
+//   .sort(function (a, b) {
+//     if (a.title > b.title) return 1;
+//     if (a.title < b.title) return -1;
+//     return 0;
+//   });
+// console.log(recupDataMediaTitile);
