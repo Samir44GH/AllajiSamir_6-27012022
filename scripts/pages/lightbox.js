@@ -26,7 +26,7 @@ class LightBox {
     //Element courant de la galeire
     let imageCur = -1;
 
-    // Boucle qui permet l'affichage des iamges dans la lightbox
+    // Boucle qui permet l'affichage des images dans la lightbox
     for (let elCur of this.listMedia) {
       let LBimage = elCur.video
         ? this.createVideo(elCur.video)
@@ -48,6 +48,8 @@ class LightBox {
       LightBoxEl.appendChild(LightBoxEl1);
       //LighboxContainer contient un article
       LightBox.appendChild(LightBoxEl);
+
+      //Affichage d'une image ou d'une vidéo
       if (!elCur.video)
         LightBoxEl.children[LightBoxEl.children.length - 1].children[0].src =
           "assets/" + this.country + "/" + elCur.image || elCur.video;
